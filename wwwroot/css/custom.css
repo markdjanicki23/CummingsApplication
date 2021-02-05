@@ -57,17 +57,18 @@ input {
 
 #submitBtn {
     margin-top: 11px;
-    height: 70px;
+    height: 80px;
     width: 280px;
     background-color: darkred;
     color: white;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 29px;
     margin-top: 40px;
     margin-bottom: 40px;
 }
 #submitContainer {
     text-align: center;
+    padding-right: 80px;
 }
 
 #defendantLastName{
@@ -110,8 +111,8 @@ input {
     margin-top: 50px;
 }
 
-#disclaimerBox:checked {
-    color: black;
+#disclaimerBoxMobile {
+    width: 300px;
 }
 
 select {
@@ -157,6 +158,9 @@ select {
     #lefthandImgs{
         display: none;
     }
+    #dollarSign{
+        display: none;
+    }
     #disclaimerBox{
         width: 20px;
     }
@@ -165,5 +169,14 @@ select {
     }
     select.darkArrow{
         margin-right: 100px;
+    }
+    #disclaimerBox {
+        display: none;
+    }
+}
+
+@media (min-width: 769px){
+    #disclaimerBoxMobile{
+        display: none;
     }
 }

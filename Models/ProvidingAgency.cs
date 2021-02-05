@@ -19,7 +19,6 @@ namespace CummingsApplication.Models
         public string MobileNumber { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Date { get; set; }
 
         public string City { get; set; }
