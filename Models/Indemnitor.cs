@@ -20,7 +20,6 @@ namespace CummingsApplication.Models
 
         public string Alias { get; set; }
 
-        [RegularExpression(@"^\d{1,2}\/\d{1,2}\/\d{4}$")]
         public string BirthDate { get; set; }
 
         public string Gender { get; set; }

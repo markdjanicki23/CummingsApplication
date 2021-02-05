@@ -4,14 +4,16 @@ using CummingsApplication.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CummingsApplication.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210205203524_005_NoAnno")]
+    partial class _005_NoAnno
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,56 +49,49 @@ namespace CummingsApplication.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AdditionalInfoId")
+                    b.Property<int>("AdditionalInfoId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("BondTransferId")
+                    b.Property<int>("BondTransferId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("DefendantId")
+                    b.Property<int>("DefendantId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("IndemnitorId")
+                    b.Property<int>("IndemnitorId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("JailId")
+                    b.Property<int>("JailId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ProvidingAgencyId")
+                    b.Property<int>("ProvidingAgencyId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RequestingAgencyId")
+                    b.Property<int>("RequestingAgencyId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AdditionalInfoId")
-                        .IsUnique()
-                        .HasFilter("[AdditionalInfoId] IS NOT NULL");
+                        .IsUnique();
 
                     b.HasIndex("BondTransferId")
-                        .IsUnique()
-                        .HasFilter("[BondTransferId] IS NOT NULL");
+                        .IsUnique();
 
                     b.HasIndex("DefendantId")
-                        .IsUnique()
-                        .HasFilter("[DefendantId] IS NOT NULL");
+                        .IsUnique();
 
                     b.HasIndex("IndemnitorId")
-                        .IsUnique()
-                        .HasFilter("[IndemnitorId] IS NOT NULL");
+                        .IsUnique();
 
                     b.HasIndex("JailId")
-                        .IsUnique()
-                        .HasFilter("[JailId] IS NOT NULL");
+                        .IsUnique();
 
                     b.HasIndex("ProvidingAgencyId")
-                        .IsUnique()
-                        .HasFilter("[ProvidingAgencyId] IS NOT NULL");
+                        .IsUnique();
 
                     b.HasIndex("RequestingAgencyId")
-                        .IsUnique()
-                        .HasFilter("[RequestingAgencyId] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("BailBondInfos");
                 });
@@ -491,31 +486,45 @@ namespace CummingsApplication.Data.Migrations
                 {
                     b.HasOne("CummingsApplication.Models.AdditionalInfo", "AdditionalInfo")
                         .WithOne("BailBondInfo")
-                        .HasForeignKey("CummingsApplication.Models.BailBondInfo", "AdditionalInfoId");
+                        .HasForeignKey("CummingsApplication.Models.BailBondInfo", "AdditionalInfoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("CummingsApplication.Models.BondTransfer", "BondTransfer")
                         .WithOne("BailBondInfo")
-                        .HasForeignKey("CummingsApplication.Models.BailBondInfo", "BondTransferId");
+                        .HasForeignKey("CummingsApplication.Models.BailBondInfo", "BondTransferId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("CummingsApplication.Models.Defendant", "Defendant")
                         .WithOne("BailBondInfo")
-                        .HasForeignKey("CummingsApplication.Models.BailBondInfo", "DefendantId");
+                        .HasForeignKey("CummingsApplication.Models.BailBondInfo", "DefendantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("CummingsApplication.Models.Indemnitor", "Indemnitor")
                         .WithOne("BailBondInfo")
-                        .HasForeignKey("CummingsApplication.Models.BailBondInfo", "IndemnitorId");
+                        .HasForeignKey("CummingsApplication.Models.BailBondInfo", "IndemnitorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("CummingsApplication.Models.Jail", "Jail")
                         .WithOne("BailBondInfo")
-                        .HasForeignKey("CummingsApplication.Models.BailBondInfo", "JailId");
+                        .HasForeignKey("CummingsApplication.Models.BailBondInfo", "JailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("CummingsApplication.Models.ProvidingAgency", "ProvidingAgency")
                         .WithOne("BailBondInfo")
-                        .HasForeignKey("CummingsApplication.Models.BailBondInfo", "ProvidingAgencyId");
+                        .HasForeignKey("CummingsApplication.Models.BailBondInfo", "ProvidingAgencyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("CummingsApplication.Models.RequestingAgency", "RequestingAgency")
                         .WithOne("BailBondInfo")
-                        .HasForeignKey("CummingsApplication.Models.BailBondInfo", "RequestingAgencyId");
+                        .HasForeignKey("CummingsApplication.Models.BailBondInfo", "RequestingAgencyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

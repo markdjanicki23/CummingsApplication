@@ -3,7 +3,7 @@
 @using CummingsApplication.Enums 
 
 <div class="container-fluid" id="body">
-    <form>
+     <form asp-action="Index">
 
 
         <div class="row">
@@ -33,14 +33,14 @@
                         <span asp-validation-for="@Model.ProvidingAgency.MobileNumber" class="text-danger"></span>
                     </div>
 
-                    <div class="col-5">
+                    <div class="col-sm-5">
                         <input asp-for="@Model.ProvidingAgency.City" class="form-control" placeholder="City" />
                         <span asp-validation-for="@Model.ProvidingAgency.City" class="text-danger"></span>
                     </div>
-                    <div class="col-2">
+                    <div class="col-sm-2">
                         <select class="darkArrow" asp-for="Jail.State" asp-items="Html.GetEnumSelectList<States>()"><option disabled hidden selected>State</option></select>
                     </div>
-                    <div class="col-5">
+                    <div class="col-sm-5">
                         <input asp-for="@Model.ProvidingAgency.County" class="form-control" placeholder="County" />
                         <span asp-validation-for="@Model.ProvidingAgency.County" class="text-danger"></span>
                     </div>
@@ -64,15 +64,15 @@
                         <span asp-validation-for="@Model.Jail.Name" class="text-danger"></span>
                     </div>
 
-                    <div class="col-5">
+                    <div class="col-sm-5">
                         <input asp-for="@Model.Jail.City" class="form-control" placeholder="City" />
                         <span asp-validation-for="@Model.Jail.City" class="text-danger"></span>
                     </div>
-                    <div class="col-2">
+                    <div class="col-lg-2">
                         <select class="darkArrow"  asp-for="Jail.State" asp-items="Html.GetEnumSelectList<States>()"><option disabled hidden selected>State</option></select>
 
                     </div>
-                    <div class="col-5">
+                    <div class="col-lg-5">
                         <input asp-for="@Model.Jail.County" class="form-control" placeholder="County" />
                         <span asp-validation-for="@Model.Jail.County" class="text-danger"></span>
                     </div>
@@ -81,21 +81,21 @@
         </div>
 
         <div class="row">
-            <div class="col-1">
+            <div class="col-sm-1">
                 <img src="~/img/Bond.PNG" id="lefthandImgs" />
             </div>
-            <div class="col-11">
+            <div class="col-lg-11">
                 <div class="col-12-lg">
                     <h4>BOND TRANSFER INFORMATION</h4>
                 </div>
                 <div class="row" id="lightGreyBackground">
 
                     <img src="~/img/dollaricon.PNG" id="dollarSign" />
-                    <div class="col-5">
+                    <div class="col-sm-5">
                         <input asp-for="@Model.BondTransfer.Amount" class="form-control" placeholder="Bond Amount">
                         <span asp-validation-for="@Model.BondTransfer.Amount" class="text-danger"></span>
                     </div>
-                    <div class="col-6">
+                    <div class="col-sm-6">
                         <input asp-for="@Model.BondTransfer.SerialNumber" class="form-control" placeholder="Serial Number" />
                         <span asp-validation-for="@Model.BondTransfer.SerialNumber" class="text-danger"></span>
                     </div>
@@ -125,14 +125,14 @@
                         <span asp-validation-for="@Model.RequestingAgency.MobileNumber" class="text-danger"></span>
                     </div>
 
-                    <div class="col-5">
+                    <div class="col-sm-5">
                         <input asp-for="@Model.RequestingAgency.City" class="form-control" placeholder="City" />
                         <span asp-validation-for="@Model.RequestingAgency.City" class="text-danger"></span>
                     </div>
-                    <div class="col-2">
+                    <div class="col-sm-2">
                         <select class="darkArrow"  asp-for="RequestingAgency.State" asp-items="Html.GetEnumSelectList<States>()"><option disabled hidden selected>State</option></select>
                     </div>
-                    <div class="col-5">
+                    <div class="col-sm-5">
                         <input asp-for="@Model.RequestingAgency.County" class="form-control" placeholder="County" />
                         <span asp-validation-for="@Model.RequestingAgency.County" class="text-danger"></span>
                     </div>
@@ -194,7 +194,7 @@
                         <input asp-for="@Model.Indemnitor.MiddleName" class="form-control" placeholder="Middle Name" />
                         <span asp-validation-for="@Model.Indemnitor.MiddleName" class="text-danger"></span>
                     </div>
-                    <div class="col-6">
+                    <div class="col-lg-6">
                         <input asp-for="@Model.Indemnitor.LastName" class="form-control" placeholder="Last Name" />
                         <span asp-validation-for="@Model.Indemnitor.LastName" class="text-danger"></span>
                     </div>
@@ -204,17 +204,17 @@
                         <span asp-validation-for="@Model.Indemnitor.Alias" class="text-danger"></span>
                     </div>
 
-                    <div class="col-2">
+                    <div class="col-md-2">
                         <input asp-for="@Model.Indemnitor.BirthDate" class="form-control" placeholder="Date of Birth" />
                         <span asp-validation-for="@Model.Indemnitor.BirthDate" class="text-danger"></span>
                     </div>
-                    <div class="col-3">
+                    <div class="col-sm-3">
                         <select class="darkArrow"  asp-for="Indemnitor.Gender" asp-items="Html.GetEnumSelectList<Genders>()"><option disabled hidden selected>Gender</option></select>
                     </div>
-                    <div class="col-4">
+                    <div class="col-sm-4">
                         <select class="darkArrow"  asp-for="Indemnitor.Ethnicity" asp-items="Html.GetEnumSelectList<Ethnicity>()"><option disabled hidden selected>Ethnicity</option></select>
                     </div>
-                    <div class="col-3">
+                    <div class="col-sm-3">
                         <input asp-for="@Model.Indemnitor.SocialSecurityNumber" class="form-control" placeholder="Social Security" />
                         <span asp-validation-for="@Model.Indemnitor.SocialSecurityNumber" class="text-danger"></span>
                     </div>
@@ -284,7 +284,9 @@
 
                     </div>
                     <div class="col-lg-12" id="submitContainer">
-                        <button class="btn" type="submit" id="submitBtn">SUBMIT</button>
+                        <input class="btn" type="submit" id="submitBtn" value="SUBMIT" />
+                        <input action="post" class="btn" type="submit" id="submitBtn">
+                        <button class="btn" type="submit" id="submitBtn"></button>
                     </div>
                 </div>
             </div>

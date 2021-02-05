@@ -16,7 +16,6 @@ namespace CummingsApplication.Models
 
         public string FirstName { get; set; }
 
-        [RegularExpression(@"^\d{1,2}\/\d{1,2}\/\d{4}$")]
         public string BirthDate { get; set; }
 
         public string SocialSecurityNumber { get; set; }

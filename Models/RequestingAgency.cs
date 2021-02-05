@@ -14,9 +14,6 @@ namespace CummingsApplication.Models
 
         public string Name { get; set; }
 
-        [Display(Name = "Phone Number")]
-        [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
         public string MobileNumber { get; set; }
 
         public string City { get; set; }
